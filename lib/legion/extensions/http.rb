@@ -1,10 +1,9 @@
 require 'legion/extensions/http/version'
-require 'legion/extensions'
 
 module Legion
   module Extensions
     module Http
-      extend Legion::Extensions::Core
+      extend Legion::Extensions::Core if Legion::Extensions.const_defined? :Core
 
       def self.default_settings
         {
