@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
+name = 'http'
 require "./lib/legion/extensions/#{name}/version"
 version = Legion::Extensions::Http::VERSION
-name = 'http'
 
 puts "Building docker image for Legion v#{version}"
 system("docker build --tag legionio/lex-#{name}:v#{version} .")
