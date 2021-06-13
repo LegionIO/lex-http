@@ -10,7 +10,7 @@ module Legion
           options: {
             open_timeout: 5,
             read_timeout: 10,
-            timeout:      10
+            timeout: 10
           }
         }
       end

@@ -1,11 +1,18 @@
 require 'faraday'
 require 'faraday_middleware'
-
+# excon 174m
+# net-http-persistent 42m
+# HTTPClient 131m
+#
 module Legion
   module Extensions
     module Http
       module Runners
         module Http
+          def status(**_opts)
+            { test: true }
+          end
+
           def get(host:, uri: '', port: 80, **opts)
             conn = Faraday.new(host) do |c|
               c.options[:open_timeout] = settings[:options][:open_timeout]
