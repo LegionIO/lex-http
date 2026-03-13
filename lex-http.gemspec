@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Connections LegionIO to any HTTP source'
   spec.homepage      = 'https://github.com/LegionIO/lex-http'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
+  spec.required_ruby_version = '>= 3.4'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/LegionIO/lex-http'
@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'faraday'
+  spec.add_dependency 'faraday', '>= 2.0'
   spec.add_dependency 'faraday_middleware'
   spec.add_dependency 'multi_json'
   spec.add_dependency 'multi_xml'
