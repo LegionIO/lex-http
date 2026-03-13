@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'faraday'
-require 'faraday_middleware'
 # excon 174m
 # net-http-persistent 42m
 # HTTPClient 131m
