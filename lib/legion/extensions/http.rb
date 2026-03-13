@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'legion/extensions/http/version'
 
 module Legion
@@ -10,7 +12,7 @@ module Legion
           options: {
             open_timeout: 5,
             read_timeout: 10,
-            timeout: 10
+            timeout:      10
           }
         }
       end

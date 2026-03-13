@@ -1,70 +1,40 @@
-# Legion::Extensions::Http
+# lex-http
 
-A Legion Extension designed to make HTTP requests
+HTTP client extension for [LegionIO](https://github.com/LegionIO/LegionIO). Makes HTTP requests with support for JSON and XML content types via Faraday.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'lex-http'
+```bash
+gem install lex-http
 ```
 
-And then execute:
+## Functions
 
-    $ bundle install
+| Function | Parameters |
+|----------|-----------|
+| get | host (required), uri, port, params, body, open_timeout, timeout |
+| post | host (required), uri, port, params, body, open_timeout, timeout |
+| put | host (required), uri, port, params, body, open_timeout, timeout |
+| patch | host (required), uri, port, params, body, open_timeout, timeout |
+| delete | host (required), uri, port, params, body, open_timeout, timeout |
+| options | host (required), uri, port, params, body, open_timeout, timeout |
+| head | host (required), uri, port, params, body, open_timeout, timeout |
 
-Or install it yourself as:
+### Example Payloads
 
-    $ gem install lex-http
-
-## Adding to Legion
-You can manually install with a `gem install lex-http` command or by adding it into your settings with something like this
-```json
-{
-  "extensions": {
-    "http": {
-      "enabled": true, "workers": 1
-    }
-  }
-}
-```
-
-## Usage
-
-There is only a single runner in this LEX. It can make the following calls 
-##### Functions
-|function|open_timeout|timeout|Port|Params|Body|Host|URI|
-|---|---|---|---|---|---|---|---|
-|get    |Optional|Optional|80|Optional|Optional|Required|\|
-|post   |Optional|Optional|80|Optional|Optional|Required|\|
-|patch  |Optional|Optional|80|Optional|Optional|Required|\|
-|put    |Optional|Optional|80|Optional|Optional|Required|\|
-|delete |Optional|Optional|80|Optional|Optional|Required|\|
-|options|Optional|Optional|80|Optional|Optional|Required|\|
-|head   |Optional|Optional|80|Optional|Optional|Required|\|
-
-#### Example Payloads
 ```json
 {"host": "https://google.com"}
 ```
 
 ```json
-{"host": "https://google.com", "uri": "/", "port": 443}
+{"host": "http://192.168.1.1", "uri": "/my_custom_api", "port": 8080, "params": {"foo": "bar"}}
 ```
 
-```json
-{"host": "http://192.168.1.1", "uri": "/my_custom_api", "port": 8080, "params": {"foo": "bar"} }
-```
+## Requirements
 
-## Development
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-Bug reports and pull requests are welcome on GitHub at https://bitbucket.org/legion-io/lex-http.
+- Ruby >= 3.4
+- [LegionIO](https://github.com/LegionIO/LegionIO) framework
 
 ## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
+MIT
