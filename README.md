@@ -49,6 +49,16 @@ All functions are in the `Http` runner and accept the following parameters:
 {"host": "https://api.example.com", "uri": "/users", "body": {"name": "Alice"}}
 ```
 
+## Standalone Client
+
+Use `Legion::Extensions::Http::Client` outside the full LegionIO framework. The client stores timeout defaults; each request specifies its own host.
+
+```ruby
+require 'legion/extensions/http'
+client = Legion::Extensions::Http::Client.new(open_timeout: 5, read_timeout: 10)
+response = client.get(host: 'https://api.example.com', uri: '/status')
+```
+
 ## Requirements
 
 - Ruby >= 3.4
