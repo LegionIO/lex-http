@@ -8,6 +8,7 @@
 
 Legion Extension that connects LegionIO to any HTTP source. Provides runners for making HTTP requests with support for multiple content types (JSON, XML) via Faraday.
 
+**Version**: 0.2.0
 **GitHub**: https://github.com/LegionIO/lex-http
 **License**: MIT
 
@@ -15,8 +16,11 @@ Legion Extension that connects LegionIO to any HTTP source. Provides runners for
 
 ```
 Legion::Extensions::Http
-└── Runners/
-    └── Http               # HTTP request execution (GET, POST, etc.)
+├── Runners/
+│   └── Http               # HTTP request execution (GET, POST, etc.)
+├── Helpers/
+│   └── Client             # Faraday connection builder with timeout defaults
+└── Client                 # Standalone client class (includes all runners)
 ```
 
 ## Key Files
@@ -25,6 +29,8 @@ Legion::Extensions::Http
 |------|---------|
 | `lib/legion/extensions/http.rb` | Entry point, extension registration, `default_settings` |
 | `lib/legion/extensions/http/runners/http.rb` | HTTP request logic (all verbs) |
+| `lib/legion/extensions/http/helpers/client.rb` | Faraday connection builder with timeout defaults |
+| `lib/legion/extensions/http/client.rb` | Standalone `Client` class for use outside Legion framework |
 
 ## Runner Methods
 
@@ -46,7 +52,8 @@ Response parsing is automatic: JSON content types parse to Hash, XML content typ
 ## Notes
 
 - `default_settings` defines `open_timeout: 5`, `read_timeout: 10`, `timeout: 10`
-- There is no standalone `Client` class — this extension is framework-only (runners read `settings` directly)
+- `Helpers::Client` builds a Faraday connection with those timeout defaults; runners use it rather than constructing Faraday inline
+- The standalone `Client` class wraps `Helpers::Client` and includes all runners, enabling use outside the full LegionIO framework
 - `faraday_middleware` is NOT a declared dependency; response parsing is handled by Faraday's built-in middleware (`c.response :json` / `c.response :xml`)
 
 ## Dependencies
@@ -58,6 +65,8 @@ Response parsing is automatic: JSON content types parse to Hash, XML content typ
 | `multi_xml` | XML parser abstraction |
 
 ## Testing
+
+55 specs total (45 existing + 10 in `spec/legion/extensions/http/client_spec.rb`).
 
 ```bash
 bundle install
