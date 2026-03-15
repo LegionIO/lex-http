@@ -2,11 +2,17 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-03-15
+
 ### Added
-- Comprehensive specs for `Runners::Http`: all seven HTTP verbs plus `status`, covering
-  Faraday builder configuration, request parameter/body propagation, uri defaults,
-  port defaults, and response middleware registration
-- Expanded specs for `Legion::Extensions::Http` module: `default_settings` timeout values
+- `Helpers::Client` module for building Faraday connections with configurable timeouts
+- Standalone `Client` class including all runner modules
+- `Client#initialize` accepts `open_timeout:`, `read_timeout:`, `timeout:`, `port:` stored as defaults
+- `Client#settings` exposes stored options for runner compatibility without the full framework
+- Specs for `Client`: initialize defaults, custom options, `#connection`, `#settings`, runner method availability
+
+### Changed
+- `lib/legion/extensions/http.rb` now requires `helpers/client`, `runners/http`, and `client`
 
 ## [0.1.3] - 2026-03-13
 
