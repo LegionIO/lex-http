@@ -8,7 +8,7 @@
 
 Legion Extension that connects LegionIO to any HTTP source. Provides runners for making HTTP requests with support for multiple content types (JSON, XML) via Faraday.
 
-**Version**: 0.2.0
+**Version**: 0.2.1
 **GitHub**: https://github.com/LegionIO/lex-http
 **License**: MIT
 
@@ -66,7 +66,7 @@ Response parsing is automatic: JSON content types parse to Hash, XML content typ
 
 ## Testing
 
-55 specs total (45 existing + 10 in `spec/legion/extensions/http/client_spec.rb`).
+55 specs across 3 spec files.
 
 ```bash
 bundle install

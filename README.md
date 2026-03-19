@@ -62,7 +62,8 @@ response = client.get(host: 'https://api.example.com', uri: '/status')
 ## Requirements
 
 - Ruby >= 3.4
-- [LegionIO](https://github.com/LegionIO/LegionIO) framework
+- [LegionIO](https://github.com/LegionIO/LegionIO) framework (optional for standalone client usage)
+- `faraday` >= 2.0, `multi_json`, `multi_xml`
 
 ## License
 
