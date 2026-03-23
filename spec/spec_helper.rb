@@ -1,17 +1,38 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'legion/logging'
+require 'legion/settings'
+require 'legion/cache/helper'
+require 'legion/crypt/helper'
+require 'legion/data/helper'
+require 'legion/json/helper'
+require 'legion/transport'
 
-# Stub Legion::Extensions::Helpers::Lex before loading any runners.
-# In production the full LegionIO framework provides this; in specs we
-# replicate only the behaviour the runner files actually rely on.
+# Define Helpers::Lex using the real helpers from sub-gems so guarded
+# includes resolve in tests and all classes get working log, settings,
+# cache, and vault methods.
 module Legion
   module Extensions
     module Helpers
       module Lex
-        def self.included(base)
-          base.extend base if base.instance_of?(Module)
-        end
+        include Legion::Logging::Helper
+        include Legion::Settings::Helper
+        include Legion::Cache::Helper
+        include Legion::Crypt::Helper
+        include Legion::Data::Helper
+        include Legion::JSON::Helper
+        include Legion::Transport::Helper
+      end
+    end
+
+    module Actors
+      class Every
+        include Helpers::Lex
+      end
+
+      class Once
+        include Helpers::Lex
       end
     end
   end
