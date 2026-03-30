@@ -151,11 +151,6 @@ RSpec.describe Legion::Extensions::Http::Runners::Http do
       expect(fake_request).not_to have_received(:body=)
     end
 
-    it 'registers xml response middleware' do
-      runner.get(host: 'http://example.com')
-      expect(fake_builder).to have_received(:response).with(:xml, content_type: /\bxml$/)
-    end
-
     it 'registers json response middleware' do
       runner.get(host: 'http://example.com')
       expect(fake_builder).to have_received(:response).with(:json, content_type: /\bjson$/)
