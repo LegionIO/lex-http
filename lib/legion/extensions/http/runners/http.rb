@@ -19,7 +19,6 @@ module Legion
               c.options[:open_timeout] = settings[:options][:open_timeout]
               c.options[:timeout] = settings[:options][:timeout]
               c.port = port
-              c.response :xml,  content_type: /\bxml$/
               c.response :json, content_type: /\bjson$/
             end
 
@@ -34,7 +33,6 @@ module Legion
               c.options[:open_timeout] = settings[:options][:open_timeout]
               c.options[:timeout] = settings[:options][:timeout]
               c.port = port
-              c.response :xml,  content_type: /\bxml$/
               c.response :json, content_type: /\bjson$/
             end
             conn.post(uri) do |req|
@@ -49,7 +47,6 @@ module Legion
               c.options[:open_timeout] = settings[:options][:open_timeout]
               c.options[:timeout] = settings[:options][:timeout]
               c.port = port
-              c.response :xml,  content_type: /\bxml$/
               c.response :json, content_type: /\bjson$/
             end
 
@@ -65,7 +62,6 @@ module Legion
               c.options[:open_timeout] = settings[:options][:open_timeout]
               c.options[:timeout] = settings[:options][:timeout]
               c.port = port
-              c.response :xml,  content_type: /\bxml$/
               c.response :json, content_type: /\bjson$/
             end
 
@@ -81,7 +77,6 @@ module Legion
               c.options[:open_timeout] = settings[:options][:open_timeout]
               c.options[:timeout] = settings[:options][:timeout]
               c.port = port
-              c.response :xml,  content_type: /\bxml$/
               c.response :json, content_type: /\bjson$/
             end
 
@@ -97,7 +92,6 @@ module Legion
               c.options[:open_timeout] = settings[:options][:open_timeout]
               c.options[:timeout] = settings[:options][:timeout]
               c.port = port
-              c.response :xml,  content_type: /\bxml$/
               c.response :json, content_type: /\bjson$/
             end
 
@@ -113,7 +107,6 @@ module Legion
               c.options[:open_timeout] = settings[:options][:open_timeout]
               c.options[:timeout] = settings[:options][:timeout]
               c.port = port
-              c.response :xml,  content_type: /\bxml$/
               c.response :json, content_type: /\bjson$/
             end
 
